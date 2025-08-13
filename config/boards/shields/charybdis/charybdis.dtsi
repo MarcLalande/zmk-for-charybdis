@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
     chosen {
@@ -39,16 +40,28 @@
         trackballs = <&trackball>;
     };
 
+    // Define input processors
+    input_processors {
+        // Custom scaler for X/Y movement
+        trackball_scaler: trackball_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
+            track-remainders;
+        };
+    };
+
     // Input listener for trackball with DPI scaling
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         
         // For 2x speed (double DPI effect):
-        xy-processors = <&zip_xy_scaler 2 1>;
+        xy-processors = <&trackball_scaler 2 1>;
         
         // Alternative: For 1.5x speed (uncomment the line below and comment out the 2x line above):
-        // xy-processors = <&zip_xy_scaler 3 2>;
+        // xy-processors = <&trackball_scaler 3 2>;
     };
 };
 
