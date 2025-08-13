@@ -56,5 +56,41 @@
 	};
 };
 
+/ {
+    behaviors {
+        tmv_coarse: trackball_coarse {
+            compatible = "zmk,behavior-point-device-directional";
+            #binding-cells = <0>;
+            mode = "move-mode";
+            scale-multiplier = <3>;  // Normal speed
+        };
+        
+        tmv_fine: trackball_fine {
+            compatible = "zmk,behavior-point-device-directional";
+            #binding-cells = <0>;
+            mode = "move-mode";
+            scale-multiplier = <1>;  // Sniper mode (slower/more precise)
+        };
+
+        tmv_fast: trackball_fast {
+            compatible = "zmk,behavior-point-device-directional";
+            #binding-cells = <0>;
+            mode = "move-mode";
+            scale-multiplier = <5>;  // High speed mode
+        };
+
+        tsl: trackball_scroll {
+            compatible = "zmk,behavior-point-device-directional";
+            #binding-cells = <0>;
+            mode = "scroll-mode";
+            scale-multiplier = <1>;
+        };
+    };
+
+    keymap {
+        // ... your existing keymap
+    };
+};
+
 
 
