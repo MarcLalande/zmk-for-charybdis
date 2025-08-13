@@ -41,12 +41,12 @@
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
+&trans  &trans  &trans  &trans   &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans   &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp TAB  &kp LA(LEFT_ALT)  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans   &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans   &trans            &trans    &trans  &trans
+                                 &trans            &trans    &trans
             >;
         };
 
